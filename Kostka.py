@@ -1,6 +1,3 @@
-#gra w kulki - Squid games
-
-
 from random import randrange
 print('Losowanie liczby we wskazanym zakresie - wynik losowy')
 print('Ile ścian ma mieć kostka?')
