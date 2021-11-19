@@ -1,14 +1,21 @@
+import pygame
+import pygame_menu
 from random import randrange
-print('Losowanie liczby we wskazanym zakresie - wynik losowy')
-print('Ile ścian ma mieć kostka?')
-s=int(input())
-print('Ile rzutów?')
-t=int(input())
-print('Powyżej jakiej wartości sukces?')
-w=int(input())
-wynik=[]
-for i in range(t):
-     wynik.append(randrange(1, s))
-     print('wyniki kolejnych rzutów', wynik)
-     zaliczone =[n for n in wynik if n>=w] #tutaj można wprowadzić modyfikator
-     print('Rzuty powyżej sukcesu:', zaliczone)
+pygame.init()
+surface = pygame.display.set_mode((400, 400))
+def kostki(x,y):
+     global a
+     global b
+     a=x
+     b=y
+     pass
+def rzut():
+
+menu = pygame_menu.Menu('Dice Roller', 400, 400,
+                       theme=pygame_menu.themes.THEME_BLUE)
+menu.add.selector('Wybierz kostkę', [('k4', 4), ('k6', 6), ('k8', 8), ('k10', 10), ('k12', 12), ('k20', 20), ('k100/%', 100)], onchange=kostki)
+menu.add.text_input('wpisz ilość rzutów: ', s=1)
+menu.add.text_input('wpisz wartość sukcesu: ', q=1)
+menu.add.button('Rzucaj', rzut)
+menu.add.button('Koniec', pygame_menu.events.EXIT)
+menu.mainloop(surface)
