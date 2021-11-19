@@ -10,7 +10,7 @@ def kostki(x,y):
      b=y
      pass
 def rzut():
-
+     pass
 menu = pygame_menu.Menu('Dice Roller', 400, 400,
                        theme=pygame_menu.themes.THEME_BLUE)
 menu.add.selector('Wybierz kostkę', [('k4', 4), ('k6', 6), ('k8', 8), ('k10', 10), ('k12', 12), ('k20', 20), ('k100/%', 100)], onchange=kostki)
